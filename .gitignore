@@ -1,27 +1,43 @@
-# Build artifacts
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Local EEG data and derived arrays
+*.gdf
+*.edf
+*.bdf
+*.fif
+*.dat
+*.mat
+*.npy
+*.npz
+/data/raw/
+/data/processed/
+
+# LaTeX build files
 *.aux
-*.log
-*.out
-*.toc
 *.bbl
-*.blg
 *.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
 *.run.xml
 *.synctex.gz
-*.fls
-*.fdb_latexmk
+*.toc
 *.xdv
-*.pdf
-!example/build/example.pdf
-
 /build/
-example/build/*
-!example/build/example.pdf
-dist/
+/dist/
 
-# OS / editor
+# OS/editor
 .DS_Store
-*.swp
-*~
-.idea/
+Thumbs.db
 .vscode/
+.idea/
