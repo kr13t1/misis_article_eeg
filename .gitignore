@@ -1,0 +1,27 @@
+# Build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+*.pdf
+!example/build/example.pdf
+
+/build/
+example/build/*
+!example/build/example.pdf
+dist/
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/

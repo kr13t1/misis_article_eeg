@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+% Шаблон научной статьи НИТУ «МИСиС»
+% Заполните блоки ниже и скомпилируйте: xelatex article.tex
+
+\documentclass{misisarticle}
+
+% --- Классификационные коды (оставьте пустым {}, если не требуются) ---
+\grnti{47.01.07, 47.01.09}
+\asjc{1707, 2207}
+\oecd{1020, 1070}
+
+% --- Название ---
+\title{Название вашей научной статьи}
+
+% --- Авторы: \misisauthor{ФИО}{аффилиация}{город, страна}{email} ---
+\misisauthor{И.~О.~Фамилия}{кафедра инженерной кибернетики НИТУ «МИСиС»}{Москва, Россия}{student@edu.misis.ru}
+\misisauthor{П.~П.~Научный}{кафедра инженерной кибернетики НИТУ «МИСиС»}{Москва, Россия}{supervisor@misis.ru}
+
+% --- Аннотация и ключевые слова ---
+\abstract{%
+  Краткое изложение работы (5--10 предложений): постановка задачи, метод, основные результаты и выводы.
+}
+
+\keywords{%
+  ключевое слово 1, ключевое слово 2, ключевое слово 3
+}
+
+\begin{document}
+
+\maketitle
+
+% ============================================================
+\section{Введение}
+
+Первый абзац раздела начинается с красной строки (отступ 0{,}51~см). Текст выравнивается по ширине, шрифт Times New Roman, 10~pt.
+
+Второй абзац. Ссылки на литературу оформляйте так~\cite{example2024}. Для нескольких источников:~\cite{example2024, book2023}.
+
+% ============================================================
+\section{Основная часть}
+
+\subsection{Подраздел}
+
+Подзаголовки второго уровня набираются \textit{курсивом}.
+
+Пример маркированного списка:
+\begin{itemize}
+  \item первый пункт;
+  \item второй пункт;
+  \item третий пункт.
+\end{itemize}
+
+Пример формулы в строке: мера Жаккара $IoU = \dfrac{|A \cap B|}{|A \cup B|}$.
+
+Нумерованная формула (ссылка в тексте: формула~\eqref{eq:f1}):
+\begin{equation}
+  F_1 = 2 \cdot \frac{P \cdot R}{P + R}
+       = \frac{2TP}{2TP + FP + FN},
+  \label{eq:f1}
+\end{equation}
+где $P$~--- precision, $R$~--- recall, $TP$, $FP$, $FN$~--- число истинно и ложно положительных/отрицательных детекций.
+
+% --- Рисунок ---
+\begin{figure}[htbp]
+  \centering
+  % Замените заглушку на свой файл:
+  % \includegraphics[width=0.75\linewidth]{figures/figure}
+  \fbox{\parbox[c][3cm][c]{0.9\columnwidth}{\centering Placeholder для рисунка}}
+  \caption{Пример иллюстрации. Замените заглушку на свой файл из папки figures.}
+  \label{fig:example}
+\end{figure}
+
+% --- Таблица ---
+\begin{table}[htbp]
+  \caption{Пример таблицы с результатами}
+  \label{tab:example}
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    \textbf{Метод} & \textbf{Precision} & \textbf{Recall} \\
+    \toprule
+    Метод~A & 0.85 & 0.78 \\
+    Метод~B & 0.91 & 0.83 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ============================================================
+\section{Заключение}
+
+Кратко сформулируйте основные выводы работы.
+
+% ============================================================
+% Список литературы — вариант 1: вручную
+\begin{thebibliography}{9}
+
+\bibitem{example2024} Author A., Author B. Title of the paper. \textit{Journal Name}, vol.~1, no.~2, pp.~100--110, 2024.
+
+\bibitem{book2023} Author C. \textit{Book Title}. Publisher, City, 2023.
+
+\end{thebibliography}
+
+\end{document}
