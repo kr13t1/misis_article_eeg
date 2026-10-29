@@ -83,10 +83,10 @@
   ]%
   \newfontfamily\cyrillicfonttt{Courier New}%
 }{%
-  \setmainfont{TeX Gyre Termes}[Ligatures=TeX]%
-  \newfontfamily\cyrillicfont{TeX Gyre Termes}[Ligatures=TeX]%
-  \newfontfamily\cyrillicfontsf{TeX Gyre Termes}%
-  \newfontfamily\cyrillicfonttt{TeX Gyre Cursor}%
+  \setmainfont{Liberation Serif}[Ligatures=TeX]%
+  \newfontfamily\cyrillicfont{Liberation Serif}[Ligatures=TeX]%
+  \newfontfamily\cyrillicfontsf{Liberation Sans}%
+  \newfontfamily\cyrillicfonttt{Liberation Mono}%
 }
 
 \setlength{\parindent}{0.51cm}
