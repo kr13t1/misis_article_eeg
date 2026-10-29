@@ -6,7 +6,7 @@
 
 ## Статья
 
-- [Открыть PDF статьи](article.pdf) — файл формируется автоматической сборкой LaTeX; если PDF ещё не появился, см. [результаты сборки](../../actions/workflows/build-article.yml).
+- [Скачать PDF статьи из успешной сборки](https://github.com/kr13t1/misis_article_eeg/actions/runs/40882905189) — раздел **Artifacts** → `HFD-U1-MISIS-PDF` → `article.pdf`.
 - [Исходный LaTeX](article.tex) и [основной текст](article_body_hfd_u1.tex).
 - Оформление: [шаблон научной статьи НИТУ «МИСИС»](https://github.com/sadekovlar/misis-article-latex), класс `misisarticle.cls`.
 
@@ -33,6 +33,7 @@ PDF сохраняется в `build/article.pdf`.
 - `misisarticle.cls` — класс оформления;
 - `.github/workflows/build-article.yml` — автоматическая сборка PDF;
 - `experiments/` — отдельные ранее подготовленные экспериментальные скрипты для исследования Motor Imagery EEG; они **не являются** кодом расчётов HFD–U1.
+- `article_body.tex` и `references.bib` — материалы предшествующей EEG-версии статьи, не подключаются к HFD–U1.
 
 Полный исходный вычислительный архив HFD–U1 хранится отдельно от этого репозитория. Скрипты из `experiments/` не следует использовать для воспроизведения чисел в опубликованной таблице HFD–U1.
 
