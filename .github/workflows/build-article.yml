@@ -1,12 +1,10 @@
 name: Build HFD-U1 article PDF
+run-name: "HFD-U1 PDF | ${{ github.ref_name }} | ${{ github.sha }}"
 on:
   push:
     branches: [main]
-    paths:
-      - 'article.tex'
-      - 'article_body_hfd_u1.tex'
-      - 'misisarticle.cls'
-      - '.github/workflows/build-article.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -17,19 +15,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Record exact checked-out source commit
+        run: |
+          printf 'github_sha=%s\n' "$GITHUB_SHA" > SOURCE_COMMIT.txt
+          printf 'github_ref=%s\n' "$GITHUB_REF" >> SOURCE_COMMIT.txt
+          printf 'github_run_id=%s\n' "$GITHUB_RUN_ID" >> SOURCE_COMMIT.txt
+          printf 'checkout_sha=%s\n' "$(git rev-parse HEAD)" >> SOURCE_COMMIT.txt
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
       - name: Install XeLaTeX and Cyrillic fonts
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-cyrillic texlive-latex-extra texlive-fonts-recommended fonts-texgyre
+      - name: Check required manuscript sections
+        run: |
+          grep -Fq '\section{Анализ работ}' article_body_hfd_u1.tex
+          grep -Fq '\section{Постановка задачи}' article_body_hfd_u1.tex
       - name: Compile manuscript
         run: |
           xelatex -interaction=nonstopmode -halt-on-error article.tex
           xelatex -interaction=nonstopmode -halt-on-error article.tex
-      - name: Upload PDF and compilation log
+          test -s article.pdf
+      - name: Upload PDF, compilation log and source revision
         uses: actions/upload-artifact@v4
         with:
-          name: HFD-U1-MISIS-PDF
+          name: HFD-U1-MISIS-PDF-${{ github.sha }}
           path: |
             article.pdf
             article.log
+            SOURCE_COMMIT.txt
           retention-days: 30

@@ -6,7 +6,7 @@
 
 ## Статья
 
-- **[PDF — последняя сборка](https://github.com/kr13t1/misis_article_eeg/actions/workflows/build-article.yml)**: откройте успешный запуск и скачайте `HFD-U1-MISIS-PDF` в разделе **Artifacts**.
+- **[PDF — последняя сборка](https://github.com/kr13t1/misis_article_eeg/actions/workflows/build-article.yml)**: откройте успешный запуск и скачайте артефакт `HFD-U1-MISIS-PDF-<SHA>` в разделе **Artifacts**. Сверьте `SOURCE_COMMIT.txt` внутри архива с SHA запуска. После слияния изменений в `main` используйте **последнюю успешную сборку ветки `main`**, а не сборку Pull Request.
 - [Исходный файл](article.tex) · [Текст статьи](article_body_hfd_u1.tex)
 - Оформление: [шаблон МИСИС](https://github.com/sadekovlar/misis-article-latex).
 
@@ -18,7 +18,7 @@
 make article
 ```
 
-Результат: `build/article.pdf`. При изменениях `article.tex`, текста или класса GitHub Actions также собирает PDF.
+Результат: `build/article.pdf`. GitHub Actions собирает PDF после **каждого push в `main`**, в Pull Request и при ручном запуске. Артефакт содержит PDF, журнал компиляции и `SOURCE_COMMIT.txt` с точным SHA использованного коммита.
 
 ## Исследование
 
