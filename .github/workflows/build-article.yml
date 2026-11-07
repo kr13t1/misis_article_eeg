@@ -27,7 +27,7 @@ jobs:
       - name: Install XeLaTeX and Cyrillic fonts
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-cyrillic texlive-latex-extra texlive-fonts-recommended fonts-texgyre
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-cyrillic texlive-latex-extra texlive-pictures texlive-fonts-recommended fonts-texgyre
       - name: Check required manuscript sections
         run: |
           grep -Fq '\section{Анализ работ}' article_body_hfd_u1.tex
